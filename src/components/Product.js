@@ -1,5 +1,5 @@
-import React from "react"
-import Img from "gatsby-image"
+import React from "react";
+import Img from "gatsby-image";
 
 //edges -> node -> title
 const Product = ({ product }) => {
@@ -8,7 +8,7 @@ const Product = ({ product }) => {
       <Img fixed={product.images[0].localFile.childImageSharp.fixed} />
       <h3> {product.title} </h3>
     </article>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

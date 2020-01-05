@@ -1,6 +1,6 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Product from "./Product"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Product from "./Product";
 
 const PRODUCTS_LISTING_QUERY = graphql`
   query ProductsListingQuery {
@@ -25,12 +25,12 @@ const PRODUCTS_LISTING_QUERY = graphql`
       }
     }
   }
-`
+`;
 
 const ProductsListings = () => {
-  const { allShopifyProduct } = useStaticQuery(PRODUCTS_LISTING_QUERY)
+  const { allShopifyProduct } = useStaticQuery(PRODUCTS_LISTING_QUERY);
 
-  console.log(allShopifyProduct)
+  console.log(allShopifyProduct);
 
   return (
     <div>
@@ -38,7 +38,7 @@ const ProductsListings = () => {
         <Product product={edge.node} key={edge.node.id} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default ProductsListings
+export default ProductsListings;
