@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Product from "./Product"
 
 const PRODUCTS_LISTING_QUERY = graphql`
-  query MyQuery {
+  query ProductsListingQuery {
     allShopifyProduct {
       edges {
         node {
@@ -12,10 +12,14 @@ const PRODUCTS_LISTING_QUERY = graphql`
           publishedAt(formatString: "YYYY-MM")
           descriptionHtml
           description
-          variants {
-            sku
-            id
-            price
+          images {
+            localFile {
+              childImageSharp {
+                fixed(width: 200) {
+                  ...GatsbyImageSharpFixed_withWebp_tracedSVG
+                }
+              }
+            }
           }
         }
       }
@@ -25,6 +29,8 @@ const PRODUCTS_LISTING_QUERY = graphql`
 
 const ProductsListings = () => {
   const { allShopifyProduct } = useStaticQuery(PRODUCTS_LISTING_QUERY)
+
+  console.log(allShopifyProduct)
 
   return (
     <div>
