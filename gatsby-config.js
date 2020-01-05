@@ -1,13 +1,14 @@
-var config = require("./config.js")
+var config = require("./config.js");
 
 module.exports = {
   siteMetadata: {
-    title: `Rocky's Shopify Spot`,
-    description: `Turn it up!`,
+    title: `Hero Helmets`,
+    description: `No one cared who I was until I put on the mask.`,
     author: `@Rocky`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,4 +43,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
