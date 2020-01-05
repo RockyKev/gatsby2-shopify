@@ -7,7 +7,29 @@ const ProductDetail = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const { client } = useContext(StoreContext);
 
-  console.log("CLIENT STUFF -->", client);
+  const addToCart = async () => {
+    const newCheckout = await client.checkout.create();
+
+    const lineItems = [
+      {
+        variantId: product.variants[0].id.replace(
+          "Shopify__ProductVariant__",
+          ""
+        ),
+        quantity: 1,
+      },
+    ];
+
+    //shopify creates a new id to a shopping cart
+    const addItems = await client.checkout.addLineItems(
+      newCheckout.id,
+      lineItems
+    );
+
+    console.log("ADD ITEMS", addItems.webUrl);
+  };
+
+  addToCart();
 
   return (
     <div>
