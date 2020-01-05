@@ -30,7 +30,7 @@ const PRODUCTS_LISTING_QUERY = graphql`
 const ProductsListings = () => {
   const { allShopifyProduct } = useStaticQuery(PRODUCTS_LISTING_QUERY);
 
-  console.log(allShopifyProduct);
+  console.log("ALLSHOPIFY STUFF -->", allShopifyProduct);
 
   return (
     <div>
