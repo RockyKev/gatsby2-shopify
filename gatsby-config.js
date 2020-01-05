@@ -1,8 +1,10 @@
+var config = require("./config.js")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Rocky's Shopify Spot`,
+    description: `Turn it up!`,
+    author: `@Rocky`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +13,15 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        shopName: config.shopify.shopname,
+        accessToken: config.shopify.storefront,
+        verbose: true,
+        paginationSize: 250, //if app crashes, lower this number
       },
     },
     `gatsby-transformer-sharp`,
