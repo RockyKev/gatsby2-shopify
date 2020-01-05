@@ -9,6 +9,7 @@ const PRODUCTS_LISTING_QUERY = graphql`
         node {
           id
           title
+          handle
           publishedAt(formatString: "YYYY-MM")
           descriptionHtml
           description
@@ -29,8 +30,6 @@ const PRODUCTS_LISTING_QUERY = graphql`
 
 const ProductsListings = () => {
   const { allShopifyProduct } = useStaticQuery(PRODUCTS_LISTING_QUERY);
-
-  console.log("ALLSHOPIFY STUFF -->", allShopifyProduct);
 
   return (
     <div>
