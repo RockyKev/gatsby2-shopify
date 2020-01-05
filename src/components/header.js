@@ -4,17 +4,36 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderBar = styled.header`
-  background: rebeccapurple;
-  margin-bottom: 1.45rem;
+  background: rgba(0, 0, 0, 0.5);
 
   div {
+    font-family: Amaranth;
     margin: 0 auto;
     max-width: 960px;
-    padding: 1.45rem 1.08rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+
+      li {
+        display: inline;
+        padding: 0 10px;
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+    }
 
     h1 {
       background: blue;
       font-size: 50px;
+      margin: 0;
     }
   }
 `;
@@ -22,6 +41,21 @@ const HeaderBar = styled.header`
 const Header = ({ siteTitle }) => (
   <HeaderBar>
     <div>
+      <ul>
+        <li>
+          <Link to="#">Home</Link>
+        </li>
+        <li>
+          <Link to="#">Shop</Link>
+        </li>
+        <li>
+          <Link to="#">Monthly</Link>
+        </li>
+        <li>
+          <Link to="#">About</Link>
+        </li>
+      </ul>
+
       <h1>
         <Link
           to="/"
@@ -33,6 +67,16 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <ul>
+        <li>
+          <Link to="#">
+            <i class="im im-battery-full"></i> Search
+          </Link>
+        </li>
+        <li>
+          <Link to="#">Sign In/Register</Link>
+        </li>
+      </ul>
     </div>
   </HeaderBar>
 );
