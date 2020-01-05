@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { StoreContext, client } from "../context/StoreContext";
 
 import Header from "./header";
+import Footer from "./footer";
 import "./layout.css";
 
 const Layout = ({ children }) => {
@@ -29,11 +30,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+
+        <Footer />
       </div>
     </StoreContext.Provider>
   );
