@@ -1,8 +1,36 @@
 import React, { useState, useContext } from "react";
 import Img from "gatsby-image";
+import styled from "styled-components";
+
 import { StoreContext } from "../context/StoreContext";
 
 const ProductDetail = ({ product }) => {
+  const ProductWrapper = styled.article`
+    h1 {
+      font-family: Amaranth;
+    }
+
+    .small-price {
+      font-size: 1.2rem;
+      font-style: italic;
+      float: right;
+    }
+  `;
+
+  const ProductFlex = styled.article`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    div {
+      width: 50%;
+    }
+
+    p {
+      color: rgba(0, 0, 0, 0.8);
+    }
+  `;
+
   //   const [sku, setSku] = useState(product.variants[0].sku);
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const { client } = useContext(StoreContext);
@@ -28,31 +56,40 @@ const ProductDetail = ({ product }) => {
   };
 
   return (
-    <div>
-      <h1>{product.title}</h1>
-      <Img fixed={product.images[0].localFile.childImageSharp.fixed} />
-      <p>{product.description} </p>
+    <ProductWrapper>
+      <h1>
+        {product.title}
+        <span className="small-price">${selectedVariant.price} </span>
+      </h1>
 
-      <p>${selectedVariant.price} </p>
+      <ProductFlex>
+        <Img fixed={product.images[0].localFile.childImageSharp.fixed} />
+        <div>
+          <p>{product.description} </p>
 
-      <select
-        onChange={e => {
-          const selected = product.variants.filter(
-            variant => variant.sku === e.target.value
-          );
+          <p>${selectedVariant.price} </p>
 
-          setSelectedVariant(selected[0]);
-        }}
-        value={selectedVariant.sku}
-      >
-        {product.variants.map(variant => (
-          <option key={variant.id} value={variant.sku}>
-            {variant.title}
-          </option>
-        ))}
-      </select>
-      <button onClick={() => addToCart(selectedVariant.id)}> Buy Now </button>
-    </div>
+          <select
+            onChange={e => {
+              const selected = product.variants.filter(
+                variant => variant.sku === e.target.value
+              );
+
+              setSelectedVariant(selected[0]);
+            }}
+            value={selectedVariant.sku}
+          >
+            {product.variants.map(variant => (
+              <option key={variant.id} value={variant.sku}>
+                {variant.title}
+              </option>
+            ))}
+          </select>
+
+          <button onClick={() => addToCart(selectedVariant.id)}>Buy Now</button>
+        </div>
+      </ProductFlex>
+    </ProductWrapper>
   );
 };
 

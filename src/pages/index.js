@@ -1,18 +1,15 @@
 import React from "react";
-import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 
 import Image from "../components/image";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Jumbotron from "../components/Jumbotron";
-import Footer from "../components/footer";
-
 import ProductsListing from "../components/ProductsListings";
 import SplashMonthly from "../components/SplashMonthly";
 import Gaurantee from "../components/Gaurantee";
+import Footer from "../components/Footer";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
