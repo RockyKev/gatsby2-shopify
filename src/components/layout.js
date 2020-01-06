@@ -4,22 +4,9 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 import { StoreContext, client } from "../context/StoreContext";
-
-import Header from "./header";
-import Footer from "./footer";
 import "./layout.css";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   const ContentWrapper = styled.div`
     margin: 0 auto;
     max-width: 960px;
@@ -30,8 +17,6 @@ const Layout = ({ children }) => {
 
   return (
     <StoreContext.Provider value={{ client }}>
-      <Header siteTitle={data.site.siteMetadata.title} />
-
       <ContentWrapper>
         {/* SHOW THIS - DEFAULT JSX CSS
       <div
@@ -44,8 +29,6 @@ const Layout = ({ children }) => {
       > */}
 
         <main>{children}</main>
-
-        <Footer />
       </ContentWrapper>
     </StoreContext.Provider>
   );

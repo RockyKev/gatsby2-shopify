@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
+import Logo from "./logo";
+
 const HeaderBar = styled.header`
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 1);
 
   div {
     font-family: Amaranth;
@@ -26,14 +28,15 @@ const HeaderBar = styled.header`
         a {
           text-decoration: none;
           text-transform: uppercase;
+          color: white;
         }
       }
     }
 
     h1 {
-      background: blue;
       font-size: 50px;
       margin: 0;
+      font-family: Amaranth;
     }
   }
 `;
@@ -65,13 +68,12 @@ const Header = ({ siteTitle }) => (
           }}
         >
           {siteTitle}
+          {/* <Logo /> */}
         </Link>
       </h1>
       <ul>
         <li>
-          <Link to="#">
-            <i class="im im-battery-full"></i> Search
-          </Link>
+          <Link to="#">Search</Link>
         </li>
         <li>
           <Link to="#">Sign In/Register</Link>
