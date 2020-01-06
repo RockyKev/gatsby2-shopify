@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
     max-width: 960px;
     padding: 0px 1.08rem 1.45rem;
     padding-top: 0px;
-    background-color: red;
   `;
 
   return (
