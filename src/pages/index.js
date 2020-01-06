@@ -33,10 +33,11 @@ const IndexPage = () => {
         <SEO title="Home" />
 
         <ProductsListing />
-        <SplashMonthly />
-
-        <Gaurantee />
       </Layout>
+      <SplashMonthly />
+
+      <Gaurantee />
+
       <Footer />
     </>
   );

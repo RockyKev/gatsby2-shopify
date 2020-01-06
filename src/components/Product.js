@@ -8,6 +8,7 @@ const Product = ({ product }) => {
     <Link to={`/products/${product.handle}`}>
       <article>
         <Img fixed={product.images[0].localFile.childImageSharp.fixed} />
+
         <h3> {product.title} </h3>
       </article>
     </Link>
