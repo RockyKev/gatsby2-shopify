@@ -10,14 +10,14 @@ const Header = styled.h2`
 
 const Listing = styled.div`
   display: flex;
-  border: 1px blue solid;
+  ${"" /* border: 1px blue solid; */}
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 `;
 
 const ProductBox = styled.div`
-  border: 2px green solid;
+  ${"" /* border: 2px green solid; */}
   width: 33%;
 
   article {

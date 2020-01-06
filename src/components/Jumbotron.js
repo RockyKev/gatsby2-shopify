@@ -64,21 +64,6 @@ const Jumbotron = () => {
     }
   `;
 
-  // .container {
-  //   position: relative;
-  // }
-
-  // /* Bottom right text */
-  // .text-block {
-  //   position: absolute;
-  //   bottom: 20px;
-  //   right: 20px;
-  //   background-color: black;
-  //   color: white;
-  //   padding-left: 20px;
-  //   padding-right: 20px;
-  // }
-
   return (
     <JumboWrapper>
       <Img fluid={data.placeholderImage.childImageSharp.fluid} />
@@ -93,7 +78,7 @@ const Jumbotron = () => {
           <span className="italics">-Bruce Wayne</span>
         </p>
         <div className="center">
-          <button>Buy Hero Helmets</button>{" "}
+          <button>Buy Hero Helmets</button>
         </div>
       </article>
     </JumboWrapper>
